@@ -1,0 +1,23 @@
+{
+  "bots": {
+    "default_avatar": "https://tk49yj-8080.preview.csb.app/png/default_avatar.png"
+  },
+  "commands": {
+    "max_name_length": 32,
+    "min_name_length": 1,
+    "max_trigger_length": 50,
+    "min_trigger_length": 1,
+    "max_script_length": 4000,
+    "min_script_length": 0
+  },
+  "folders": {
+    "min_name_length": 1,
+    "max_name_length": 32
+  },
+  "variables": {
+    "min_name_length": 1,
+    "max_name_length": 32,
+    "min_value_length": 0,
+    "max_value_length": 5000
+  }
+}
