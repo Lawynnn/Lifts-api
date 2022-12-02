@@ -5,6 +5,9 @@ const cparser = require("cookie-parser");
 const database = require("./database");
 const store = require("connect-mongo");
 const cors = require("cors");
+
+const botAuth = require("./auth/botmw");
+const Auth = require("./auth/mw");
 require("dotenv").config();
 
 const app = express()
@@ -27,7 +30,13 @@ const app = express()
   .use(cparser())
   .use("/api/v1/bot", require("./routes/botRoute"))
   .use("/api/v1/auth", require("./routes/authRoute"))
-  .use("/api/v1/user", require("./routes/userRoute"));
+  .use("/api/v1/user", Auth, require("./routes/userRoute"))
+  .use(
+    "/api/v1/bot/:id/command",
+    Auth,
+    botAuth,
+    require("./routes/commandRoute")
+  );
 
 app.listen(app.get("port"), () => {
   console.log(`Listening on port ${app.get("port")}`);
